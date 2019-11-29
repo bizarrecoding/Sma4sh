@@ -1,7 +1,8 @@
-package com.bizarrecoding.sm4sh.Screens.Product
+package com.bizarrecoding.sm4sh.screens.product
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,7 +11,6 @@ import androidx.databinding.DataBindingUtil
 
 import com.bizarrecoding.sm4sh.R
 import com.bizarrecoding.sm4sh.databinding.ProductFragmentBinding
-import com.bizarrecoding.sm4sh.models.Product
 
 class ProductFragment : Fragment() {
 
@@ -19,12 +19,14 @@ class ProductFragment : Fragment() {
 
     override fun onCreateView( inflater: LayoutInflater, container: ViewGroup?,
                                savedInstanceState: Bundle? ): View? {
-        val binding: ProductFragmentBinding = DataBindingUtil.inflate(inflater,R.layout.catalogue_fragment,container,false)
-        //connect to DB
-
-        val catalogueViewModel = ViewModelProviders.of(this).get(ProductViewModel::class.java)
-        binding.productViewModel = productViewModel
-        binding.setLifecycleOwner(this)
+        val binding = ProductFragmentBinding.inflate(inflater)
+        val productBundle = ProductFragmentArgs.fromBundle(arguments!!).productos
+        val productViewModelFactory = ProductViewModelFactory(productBundle)
+        val productViewModel = ViewModelProviders
+            .of(this,productViewModelFactory)
+            .get(ProductViewModel::class.java)
+        binding.product = productViewModel
+        binding.lifecycleOwner = this
 
         return binding.root
     }
