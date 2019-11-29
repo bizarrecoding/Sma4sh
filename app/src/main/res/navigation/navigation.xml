@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/catalogueFragment">
+    <fragment
+        android:id="@+id/catalogueFragment"
+        android:name="com.bizarrecoding.sm4sh.screens.catalogue.CatalogueFragment"
+        android:label="catalogue_fragment"
+        tools:layout="@layout/catalogue_fragment">
+        <action
+            android:id="@+id/action_catalogueFragment_to_productFragment"
+            app:destination="@+id/productFragment"
+            app:popUpTo="@id/catalogueFragment"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/productFragment"
+        android:name="com.bizarrecoding.sm4sh.screens.product.ProductFragment"
+        android:label="product_fragment"
+        tools:layout="@layout/product_fragment" >
+        <argument
+            android:name="productos"
+            app:argType="com.bizarrecoding.sm4sh.models.Product" />
+    </fragment>
+</navigation>
