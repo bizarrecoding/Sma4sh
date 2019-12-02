@@ -9,46 +9,53 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:padding="8dp">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
             android:layout_marginBottom="8dp"
-            android:clipToPadding="false"
+            app:cardBackgroundColor="@color/colorAccent"
             app:cardCornerRadius="16dp"
+            app:contentPadding="1dp"
             app:layout_constraintBottom_toTopOf="@+id/productName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardUseCompatPadding="false">
 
-                <ImageView
-                    android:id="@+id/productImage"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_margin="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:adjustViewBounds="true"
-                    android:contentDescription="@string/product_image"
-                    android:scaleType="fitCenter"
-                    android:scaleX="1"
-                    app:imageUrl="@{product.imageURL}"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintDimensionRatio="1.0"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:srcCompat="@tools:sample/avatars" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@android:color/transparent">
+
+                    <ImageView
+                        android:id="@+id/productImage"
+                        android:layout_width="100dp"
+                        android:layout_height="0dp"
+                        android:layout_margin="8dp"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="@string/product_image"
+                        android:scaleType="fitCenter"
+                        app:imageUrl="@{product.imageURL}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintDimensionRatio="1.0"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:srcCompat="@tools:sample/avatars" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
         </androidx.cardview.widget.CardView>
 
         <TextView
@@ -61,6 +68,7 @@
             android:textColor="@android:color/primary_text_light"
             app:layout_constraintBottom_toTopOf="@+id/productUniverse"
             app:layout_constraintEnd_toEndOf="@+id/cardView"
+            app:layout_constraintHorizontal_bias="0.469"
             app:layout_constraintStart_toStartOf="@+id/cardView"
             tools:text="Ike" />
 

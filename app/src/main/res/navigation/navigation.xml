@@ -22,6 +22,6 @@
         tools:layout="@layout/product_fragment" >
         <argument
             android:name="productos"
-            app:argType="com.bizarrecoding.sm4sh.models.Product" />
+            app:argType="com.bizarrecoding.sm4sh.database.Product" />
     </fragment>
 </navigation>

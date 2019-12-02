@@ -5,21 +5,24 @@
     <data>
         <variable
             name="product"
-            type="com.bizarrecoding.sm4sh.models.Product" />
+            type="com.bizarrecoding.sm4sh.database.Product" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:paddingStart="8dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="8dp"
+        android:paddingBottom="8dp">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:clipToPadding="false"
             android:padding="2dp"
-            app:cardBackgroundColor="@color/colorAccent"
             app:cardCornerRadius="16dp"
             app:layout_constraintBottom_toTopOf="@+id/productName"
             app:layout_constraintEnd_toEndOf="parent"
@@ -27,21 +30,22 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_gravity="center"
                 android:background="@android:color/background_light">
 
                 <ImageView
                     android:id="@+id/productImage"
-                    android:layout_width="0dp"
+                    android:layout_width="100dp"
                     android:layout_height="0dp"
                     android:layout_margin="8dp"
                     android:adjustViewBounds="true"
                     android:contentDescription="@string/product_image"
-                    android:scaleType="fitCenter"
+                    android:scaleType="centerInside"
                     app:imageUrl="@{product.imageURL}"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintDimensionRatio="1.0"
+                    app:layout_constraintDimensionRatio="1"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"

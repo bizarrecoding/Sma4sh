@@ -5,11 +5,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.bizarrecoding.sm4sh.databinding.ProductItemBinding
+import com.bizarrecoding.sm4sh.databinding.NewProductItemBinding
 import com.bizarrecoding.sm4sh.database.Product
 
-class ProductAdapter(val onClickListener: OnClickListener):
-    ListAdapter<Product,ProductAdapter.ProductViewHolder>(DiffCallBack) {
+class NewProductAdapter(val onClickListener: OnClickListener):
+    ListAdapter<Product,NewProductAdapter.NewProductViewHolder>(DiffCallBack) {
 
     companion object DiffCallBack: DiffUtil.ItemCallback<Product>() {
         override fun areItemsTheSame(oldItem: Product, newItem: Product): Boolean {
@@ -21,7 +21,7 @@ class ProductAdapter(val onClickListener: OnClickListener):
         }
     }
 
-    class ProductViewHolder(private var binding: ProductItemBinding): RecyclerView.ViewHolder(binding.root) {
+    class NewProductViewHolder(private var binding: NewProductItemBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(product: Product){
             binding.product = product
             binding.executePendingBindings()
@@ -32,11 +32,11 @@ class ProductAdapter(val onClickListener: OnClickListener):
         fun onClick(product: Product) = clickListener(product)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
-        return ProductViewHolder(ProductItemBinding.inflate(LayoutInflater.from(parent.context)))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewProductViewHolder {
+        return NewProductViewHolder(NewProductItemBinding.inflate(LayoutInflater.from(parent.context)))
     }
 
-    override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: NewProductViewHolder, position: Int) {
         val product = getItem(position)
         holder.itemView.setOnClickListener {
             onClickListener.onClick(product)

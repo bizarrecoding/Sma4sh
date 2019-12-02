@@ -2,7 +2,7 @@ package com.bizarrecoding.sm4sh.screens.product
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.bizarrecoding.sm4sh.models.Product
+import com.bizarrecoding.sm4sh.database.Product
 
 @Suppress("UNCHECKED_CAST")
 class ProductViewModelFactory(private val producto: Product): ViewModelProvider.Factory {

@@ -1,24 +1,18 @@
 package com.bizarrecoding.sm4sh.screens.catalogue
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import com.bizarrecoding.sm4sh.models.Product
+import android.app.Application
+import androidx.lifecycle.*
+import com.bizarrecoding.sm4sh.database.SmashDao
 import com.bizarrecoding.sm4sh.smashApi.SmashAPI
 import kotlinx.coroutines.*
 
-class CatalogueViewModel : ViewModel() {
-    private val _products = MutableLiveData<List<Product>>()
-    val products: LiveData<List<Product>>
-        get() = _products
 
-    private val _popular = MutableLiveData<List<Product>>()
-    val popular: LiveData<List<Product>>
-        get() = _popular
+class CatalogueViewModel(val database: SmashDao, app: Application)
+    : AndroidViewModel(app) {
 
-    private val _new = MutableLiveData<List<Product>>()
-    val new: LiveData<List<Product>>
-        get() = _new
+    val products = database.getProducts()
+    val popular = database.getPopularProducts()
+    val new = database.getNewProducts()
 
     private val _total = MutableLiveData<Int>()
     val total: LiveData<Int>
@@ -32,33 +26,43 @@ class CatalogueViewModel : ViewModel() {
     val totalPopular: LiveData<Int>
         get() = _totalPopular
 
+
     private var catalogueViewModelJob = Job()
-    private val coroutineScope = CoroutineScope(catalogueViewModelJob + Dispatchers.Main)
+    private val coroutineScope = CoroutineScope(Dispatchers.Main + catalogueViewModelJob)
 
     init {
-        _total.value = 0
-        _totalPopular.value = 0
-        _totalNew.value = 0
-        getCatalogue()
-    }
-
-    private fun getCatalogue(){
         coroutineScope.launch {
-            val currentProduct = SmashAPI.service.GetProducts()
-            _products.value = currentProduct.results
-            _total.value = currentProduct.results.size
-            val popular = currentProduct.results.filter {
-                product -> product.popular!=null && product.popular
-            }
-            _popular.value = popular
-            _totalPopular.value = popular.size
-            val new = currentProduct.results.sortedBy {
-                    product -> product.createdAt
-            }.subList(0,5)
-            _new.value = new
-            _totalNew.value = new.size
+            getCatalogue()
         }
     }
+
+    private suspend fun getCatalogue(){
+        withContext(Dispatchers.IO){
+            val currentProducts = SmashAPI.service.GetProducts()
+            database.clear()
+            for (product in currentProducts.results){
+                if (!product.name.isNullOrBlank()){
+                    database.insertProducts(product)
+                }
+            }
+            if(products.value != null) {
+                _total.postValue(products.value!!.size)
+            } else{
+                _total.postValue(0)
+            }
+            if(popular.value != null) {
+                _totalPopular.postValue(popular.value!!.size)
+            } else{
+                _totalPopular.postValue(0)
+            }
+            if(new.value != null) {
+                _totalNew.postValue(new.value!!.size)
+            } else{
+                _totalNew.postValue(0)
+            }
+        }
+    }
+
 
     override fun onCleared() {
         super.onCleared()

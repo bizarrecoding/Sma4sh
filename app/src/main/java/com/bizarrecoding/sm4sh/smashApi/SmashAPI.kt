@@ -1,7 +1,6 @@
 package com.bizarrecoding.sm4sh.smashApi
 
-import com.bizarrecoding.sm4sh.BuildConfig
-import com.bizarrecoding.sm4sh.models.Results
+import com.bizarrecoding.sm4sh.database.Results
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.adapters.Rfc3339DateJsonAdapter
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory

@@ -5,11 +5,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.bizarrecoding.sm4sh.databinding.ProductItemBinding
+import com.bizarrecoding.sm4sh.databinding.PopularProductItemBinding
 import com.bizarrecoding.sm4sh.database.Product
 
-class ProductAdapter(val onClickListener: OnClickListener):
-    ListAdapter<Product,ProductAdapter.ProductViewHolder>(DiffCallBack) {
+class PopularProductAdapter(val onClickListener: OnClickListener):
+    ListAdapter<Product,PopularProductAdapter.PopularProductViewHolder>(DiffCallBack) {
 
     companion object DiffCallBack: DiffUtil.ItemCallback<Product>() {
         override fun areItemsTheSame(oldItem: Product, newItem: Product): Boolean {
@@ -21,7 +21,7 @@ class ProductAdapter(val onClickListener: OnClickListener):
         }
     }
 
-    class ProductViewHolder(private var binding: ProductItemBinding): RecyclerView.ViewHolder(binding.root) {
+    class PopularProductViewHolder(private var binding: PopularProductItemBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(product: Product){
             binding.product = product
             binding.executePendingBindings()
@@ -32,11 +32,11 @@ class ProductAdapter(val onClickListener: OnClickListener):
         fun onClick(product: Product) = clickListener(product)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
-        return ProductViewHolder(ProductItemBinding.inflate(LayoutInflater.from(parent.context)))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PopularProductViewHolder {
+        return PopularProductViewHolder(PopularProductItemBinding.inflate(LayoutInflater.from(parent.context)))
     }
 
-    override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: PopularProductViewHolder, position: Int) {
         val product = getItem(position)
         holder.itemView.setOnClickListener {
             onClickListener.onClick(product)

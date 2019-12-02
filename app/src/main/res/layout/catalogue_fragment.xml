@@ -88,9 +88,9 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    app:listData="@{catalogueViewModel.new}"
+                    app:listNewData="@{catalogueViewModel.new}"
                     tools:itemCount="5"
-                    tools:listitem="@layout/new_product" />
+                    tools:listitem="@layout/new_product_item" />
 
                 <LinearLayout
                     android:id="@+id/FramePopular"
@@ -123,9 +123,9 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    app:listData="@{catalogueViewModel.popular}"
+                    app:listPopularData="@{catalogueViewModel.popular}"
                     tools:itemCount="5"
-                    tools:listitem="@layout/new_product" />
+                    tools:listitem="@layout/new_product_item" />
 
                 <LinearLayout
                     android:id="@+id/FrameAll"
