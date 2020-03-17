@@ -5,7 +5,7 @@
     <data>
         <variable
             name="product"
-            type="com.bizarrecoding.sm4sh.database.Product" />
+            type="com.bizarrecoding.sm4sh.models.Product" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,12 +16,12 @@
             android:id="@+id/cardView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="24dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="24dp"
             android:layout_marginBottom="8dp"
             android:clipToPadding="false"
-            app:cardCornerRadius="16dp"
+            app:cardCornerRadius="10dp"
             app:layout_constraintBottom_toTopOf="@+id/productName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

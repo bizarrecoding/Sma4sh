@@ -2,8 +2,10 @@ package com.bizarrecoding.sm4sh.database
 
 import android.content.Context
 import androidx.room.*
+import com.bizarrecoding.sm4sh.models.Config
+import com.bizarrecoding.sm4sh.models.Product
 
-@Database(entities = [Product::class], version = 1, exportSchema = false)
+@Database(entities = [Product::class, Config::class], version = 1, exportSchema = false)
 @TypeConverters(DateTypeConverter::class)
 abstract class SmashDatabase : RoomDatabase() {
     abstract val smashDao: SmashDao
@@ -24,7 +26,7 @@ abstract class SmashDatabase : RoomDatabase() {
                     .build()
                     INSTANCE = instance
                 }
-                return instance
+                return INSTANCE!!
             }
         }
     }

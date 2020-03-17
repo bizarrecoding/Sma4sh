@@ -2,13 +2,25 @@
     <string name="app_name">Sm4sh</string>
     <string name="FilterDesc">filters</string>
     <string name="product_image">Product image</string>
-    <string name="total_format">All (%d)</string>
+    <string name="total_format">%s (%d)</string>
     <string name="popular_format">Popular (%d)</string>
     <string name="new_format">New (%d)</string>
     <string name="sku_format">SKU: %s</string>
-    <string name="number_format">%d downloads</string>
+    <plurals name="number_format">
+        <item quantity="zero">No downloads</item>
+        <item quantity="one">1 download</item>
+        <item quantity="many">%d downloads</item>
+    </plurals>
     <string name="money_format">$%s</string>
     <string name="games">Games</string>
     <string name="share">share</string>
     <string name="dot">dot</string>
+    <string name="newLabel">New</string>
+    <string name="next">Next</string>
+    <string name="apply">Apply</string>
+    <string name="downloads">Downloads</string>
+    <string name="date_added">Date added</string>
+    <string name="price">Price</string>
+    <string name="filters">Filters</string>
+    <string name="get_started">Get Started</string>
 </resources>

@@ -15,4 +15,18 @@ class DateTypeConverter {
     fun fromDate(date: Date?): Long? {
         return date?.time
     }
+    /*
+    @TypeConverter
+    fun fromBoolean(bool: Boolean?): Int?{
+        return bool?.let {
+            if (it) 1 else 0
+        }
+    }
+
+    @TypeConverter
+    fun fromInt(int: Int?): Boolean? {
+        return int?.let {
+            it!=0
+        }
+    }*/
 }

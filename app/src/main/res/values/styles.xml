@@ -9,9 +9,11 @@
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowFullscreen">true</item>
     </style>
-
-    <style name="RatingBar" parent="Theme.AppCompat">
-        <item name="colorControlNormal">@android:color/background_light</item>
-        <item name="colorControlActivated">@color/colorPrimary</item>
+    <style name="AppTheme.OnBoarding" parent="AppTheme">
+        <item name="android:windowBackground">@color/colorAccent</item>
     </style>
+    <style name="AppTheme.Preferences" parent="AppTheme">
+        <item name="android:windowBackground">@color/lightGray</item>
+    </style>
+
 </resources>

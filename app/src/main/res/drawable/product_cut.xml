@@ -1,23 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
-    <item android:bottom="100dp">
-        <shape android:shape="rectangle" >
-            <solid android:color="@color/colorPrimary"/>
-        </shape>
-    </item>
-    <item android:gravity="center">
-        <rotate
-            android:fromDegrees="345"
-            android:toDegrees="0"
-            android:pivotX="0%"
-            android:pivotY="100%">
-            <shape android:shape="rectangle" >
-                <gradient
-                    android:startColor="@color/colorAccent"
-                    android:endColor="@color/colorPrimary"
-                    android:angle="0"
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="180dp"
+    android:layout_width="180dp">
+<item android:width="600dp">
+    <rotate
+        android:fromDegrees="345"
+        android:toDegrees="0"
+        android:pivotX="0%"
+        android:pivotY="100%">
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="@color/colorAccent"
+                android:endColor="@color/colorPrimary"
+                android:angle="0"
                 />
-            </shape>
-        </rotate>
-    </item>
-</layer-list>
+        </shape>
+    </rotate>
+</item></layer-list>

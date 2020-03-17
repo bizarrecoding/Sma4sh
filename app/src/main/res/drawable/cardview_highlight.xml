@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/colorAccent"/>
+            <size android:width="100dp" android:height="100dp"/>
+            <corners android:radius="8dp"/>
+            <padding
+                android:bottom="@dimen/cardHighlightCorner"
+                android:left="@dimen/cardHighlightCorner"
+                android:right="@dimen/cardHighlightCorner"
+                android:top="@dimen/cardHighlightCorner" />
+        </shape>
+    </item>
+
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@android:color/white" />
+            <corners android:radius="7dp"/>
+        </shape>
+    </item>
+</layer-list>

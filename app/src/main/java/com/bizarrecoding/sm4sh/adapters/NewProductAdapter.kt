@@ -5,11 +5,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bizarrecoding.sm4sh.adapters.NewProductAdapter.NewProductViewHolder
+import com.bizarrecoding.sm4sh.models.Product
 import com.bizarrecoding.sm4sh.databinding.NewProductItemBinding
-import com.bizarrecoding.sm4sh.database.Product
 
-class NewProductAdapter(val onClickListener: OnClickListener):
-    ListAdapter<Product,NewProductAdapter.NewProductViewHolder>(DiffCallBack) {
+class NewProductAdapter(private val onClickListener: OnClickListener):
+    ListAdapter<Product, NewProductViewHolder>(DiffCallBack) {
 
     companion object DiffCallBack: DiffUtil.ItemCallback<Product>() {
         override fun areItemsTheSame(oldItem: Product, newItem: Product): Boolean {

@@ -3,17 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/catalogueFragment">
+    app:startDestination="@id/splashFragment">
     <fragment
         android:id="@+id/catalogueFragment"
         android:name="com.bizarrecoding.sm4sh.screens.catalogue.CatalogueFragment"
         android:label="catalogue_fragment"
-        tools:layout="@layout/catalogue_fragment">
+        tools:layout="@layout/fragment_catalogue">
         <action
-            android:id="@+id/action_catalogueFragment_to_productFragment"
+            android:id="@+id/toProductDetails"
             app:destination="@+id/productFragment"
             app:popUpTo="@id/catalogueFragment"
             />
+        <action
+            android:id="@+id/toFilters"
+            app:destination="@id/preferencesFragment" />
     </fragment>
     <fragment
         android:id="@+id/productFragment"
@@ -21,7 +24,46 @@
         android:label="product_fragment"
         tools:layout="@layout/product_fragment" >
         <argument
-            android:name="productos"
-            app:argType="com.bizarrecoding.sm4sh.database.Product" />
+            android:name="product"
+            app:argType="com.bizarrecoding.sm4sh.models.Product" />
     </fragment>
+    <fragment
+        android:id="@+id/preferencesFragment"
+        android:name="com.bizarrecoding.sm4sh.screens.preferences.PreferencesFragment"
+        android:label="fragment_preferences"
+        tools:layout="@layout/fragment_preferences" >
+        <action
+            android:id="@+id/toFilteredCatalogue"
+            app:destination="@id/filteredCatalogueFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.bizarrecoding.sm4sh.screens.splash.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/skipToCatalogue"
+            app:destination="@id/catalogueFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/toOnBoarding"
+            app:destination="@id/onBoardingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/onBoardingFragment"
+        android:name="com.bizarrecoding.sm4sh.screens.onboarding.OnBoardingFragment"
+        android:label="fragment_on_boarding"
+        tools:layout="@layout/fragment_onboarding" >
+        <action
+            android:id="@+id/toCatalogue"
+            app:destination="@id/catalogueFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/filteredCatalogueFragment2"
+        android:name="com.bizarrecoding.sm4sh.screens.filtered.FilteredCatalogueFragment"
+        android:label="fragment_filtered_catalogue"
+        tools:layout="@layout/fragment_filtered_catalogue" />
 </navigation>

@@ -5,10 +5,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bizarrecoding.sm4sh.models.Product
 import com.bizarrecoding.sm4sh.databinding.PopularProductItemBinding
-import com.bizarrecoding.sm4sh.database.Product
 
-class PopularProductAdapter(val onClickListener: OnClickListener):
+class PopularProductAdapter(private val onClickListener: OnClickListener):
     ListAdapter<Product,PopularProductAdapter.PopularProductViewHolder>(DiffCallBack) {
 
     companion object DiffCallBack: DiffUtil.ItemCallback<Product>() {

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="brand"
+            type="com.bizarrecoding.sm4sh.models.Brand" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="0dp">
+        <RadioButton
+            android:id="@+id/brandBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/brand_button"
+            android:button="@android:color/transparent"
+            android:minWidth="120dip"
+            android:minHeight="36dip"
+            android:checked="false"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:text="@{brand.name}"
+            android:textAllCaps="false"
+            android:textAlignment="center"
+            android:textColor="@color/brand_text_color"
+            android:textColorLink="@color/colorAccent"
+            tools:text="Fire Emblem" />
+    </LinearLayout>
+
+</layout>
